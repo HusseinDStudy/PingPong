@@ -1,6 +1,6 @@
 from turtle import *
 import turtle
-#prblm de vitesse demande le prof
+
 wn = turtle.Screen()
 wn.title("Pong")
 wn.bgcolor("black")
@@ -30,14 +30,14 @@ paddle_b.goto(350, 0)
 
 #Ball
 ball = turtle.Turtle()
-ball.speed("slowest")
+ball.speed(0.25)
 forward(1)#speed(1)
 ball.shape("square")
 ball.color("white")
 ball.penup()#to not draw a line
 ball.goto(0, 0)
-ball.dx = 2#bouge par 2px caq mvmt horizentale
-ball.dy = -2#bouge par 2px caq mvmt verticalement
+ball.dx = 1#bouge par 1px caq mvmt horizentale
+ball.dy = -1#bouge par 1px caq mvmt verticalement
 
 #Function
 def paddle_a_up():
@@ -93,7 +93,7 @@ while True:
     if ( ball.xcor() > 340 and ball.xcor() < 350)and ( ball.ycor() <  paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() - 40 ):
         ball.setx(340)
         ball.dx *= -1
-    if ( ball.xcor() > -340 and ball.xcor() < -350)and ( ball.ycor() <  paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() - 40 ):
+    elif (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() - 40):
         ball.setx(-340)
         ball.dx *= -1
         
